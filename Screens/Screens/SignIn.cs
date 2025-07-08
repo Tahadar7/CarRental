@@ -52,7 +52,7 @@ namespace Screens
             this.Hide();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private async void LoginBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(usernameTxt.Text) || string.IsNullOrEmpty(passwordTxt.Text))
             {
@@ -67,7 +67,7 @@ namespace Screens
             else   {
                 if (Admin.login(usernameTxt.Text, passwordTxt.Text))
                 {
-                    //await LogninEmail(Admin.Email);
+                    await LogninEmail(Admin.Email);
 
                     Menu menu = new Menu();
                     menu.Show();
@@ -173,7 +173,7 @@ namespace Screens
 
                 var client = new SendGridClient(apiKey);
 
-                var from = new EmailAddress("dtaha6529@gmail.com", "Taha Manshoor");
+                var from = new EmailAddress("tahaamanshoor@gmail.com", "Taha Manshoor");
                 var subject = "Welcome to Our Service! CAR RENTAL SYSTEM";
 
                 var to = new EmailAddress(useremail, Admin.Name);

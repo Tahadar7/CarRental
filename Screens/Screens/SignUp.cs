@@ -55,7 +55,7 @@ namespace Screens
             WindowState = FormWindowState.Minimized;
         }
 
-        private void signBtn_Click(object sender, EventArgs e)
+        private async void signBtn_Click(object sender, EventArgs e)
         {
             if (
                 string.IsNullOrEmpty(usernameTxt.Text) || string.IsNullOrEmpty(nameTxt.Text)
@@ -85,7 +85,7 @@ namespace Screens
                     Admin.Cell = cellTxt.Text;
                     Admin.Email = emailTxt.Text;
 
-                    //await SendEmail(emailTxt.Text);
+                    await SendEmail(emailTxt.Text);
 
                     Admin.SignUP(passwordTxt.Text);
 
